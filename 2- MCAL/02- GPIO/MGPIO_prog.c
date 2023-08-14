@@ -153,7 +153,7 @@ void MGPIO_voidSetPinInputPull(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_
 
 
 u8 MGPIO_u8GetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber){
-	u8 local_u8PinValue;
+	u8 local_u8PinValue = 0;
 	switch(copy_u8PortId){
 		case GPIO_PORTA: local_u8PinValue = GET_BIT(GPIOA->IDR , copy_u8PinNumber);   break;
 		case GPIO_PORTB: local_u8PinValue = GET_BIT(GPIOB->IDR , copy_u8PinNumber);   break;
@@ -174,12 +174,30 @@ u8 MGPIO_u8GetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber){
 
 void MGPIO_voidSetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Value){
 	switch(copy_u8PortId){
-		case GPIO_PORTA:  GPIOA->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
-		case GPIO_PORTB:  GPIOB->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
-		case GPIO_PORTC:  GPIOC->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
-		case GPIO_PORTD:  GPIOD->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
-		case GPIO_PORTE:  GPIOE->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
-		case GPIO_PORTH:  GPIOH->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+	    case GPIO_PORTA: {
+		   GPIOA->ODR &= ~(1<<copy_u8PinNumber);
+		   GPIOA->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+	    }
+	    case GPIO_PORTB: {
+	    	GPIOB->ODR &= ~(1<<copy_u8PinNumber);
+		    GPIOB->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+	    }
+		case GPIO_PORTC: {
+			GPIOC->ODR &= ~(1<<copy_u8PinNumber);
+			GPIOC->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+		}
+		case GPIO_PORTD: {
+			GPIOD->ODR &= ~(1<<copy_u8PinNumber);
+			GPIOD->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+		}
+		case GPIO_PORTE: {
+			GPIOE->ODR &= ~(1<<copy_u8PinNumber);
+			GPIOE->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+		}
+		case GPIO_PORTH: {
+			GPIOH->ODR &= ~(1<<copy_u8PinNumber);
+			GPIOH->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
+		}
 	}
 }
 
