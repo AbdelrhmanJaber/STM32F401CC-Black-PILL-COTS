@@ -7,6 +7,9 @@
 
 
 
+/***********************************Start Function*********************************************/
+
+
 
 void MGPIO_voidSetPinMode(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Mode){
 	switch(copy_u8PortId){
@@ -46,6 +49,8 @@ void MGPIO_voidSetPinMode(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Mod
 /***********************************End Function*********************************************/
 
 
+/***********************************Start Function*********************************************/
+
 
 void MGPIO_voidSetPinOutPutType(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8OutPutType){
 	switch(copy_u8PortId){
@@ -60,6 +65,10 @@ void MGPIO_voidSetPinOutPutType(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy
 
 
 /***********************************End Function*********************************************/
+
+
+
+/***********************************Start Function*********************************************/
 
 
 void MGPIO_voidSetPinOutPutSpeed(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8OutPutSpeed){
@@ -98,6 +107,11 @@ void MGPIO_voidSetPinOutPutSpeed(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 cop
 }
 
 /***********************************End Function*********************************************/
+
+
+
+
+/***********************************Start Function*********************************************/
 
 
 void MGPIO_voidSetPinInputPull(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8PullType){
@@ -155,6 +169,9 @@ u8 MGPIO_u8GetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber){
 
 
 
+/***********************************Start Function*********************************************/
+
+
 void MGPIO_voidSetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Value){
 	switch(copy_u8PortId){
 		case GPIO_PORTA:  GPIOA->ODR |=  (u32)(copy_u8Value << (copy_u8PinNumber));  break;
@@ -167,6 +184,163 @@ void MGPIO_voidSetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Va
 }
 
 /***********************************End Function*********************************************/
+
+
+
+/***********************************Start Function*********************************************/
+
+
+void MGPIO_voidSetPinValueFast(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8PinValue){
+	if(copy_u8PinValue == GPIO_HIGH){
+		switch(copy_u8PortId){
+			case GPIO_PORTA: GPIOA->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+			case GPIO_PORTB: GPIOB->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+			case GPIO_PORTC: GPIOC->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+			case GPIO_PORTD: GPIOD->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+			case GPIO_PORTE: GPIOE->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+			case GPIO_PORTH: GPIOH->BSRR = (u32)(1<<copy_u8PinNumber);  break;
+		}
+	}else if(copy_u8PinValue == GPIO_LOW){
+		switch(copy_u8PortId){
+			case GPIO_PORTA: GPIOA->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+			case GPIO_PORTB: GPIOB->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+			case GPIO_PORTC: GPIOC->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+			case GPIO_PORTD: GPIOD->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+			case GPIO_PORTE: GPIOE->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+			case GPIO_PORTH: GPIOH->BSRR = (u32)(1<< (copy_u8PinNumber+16) );  break;
+		}
+	}
+}
+
+/***********************************End Function*********************************************/
+
+
+
+/***********************************Start Function*********************************************/
+
+void MGPIO_voidLockPin(u8 copy_u8PortId , u8 copy_u8PinNumber){
+	switch(copy_u8PortId){
+		case GPIO_PORTA:{
+			SET_BIT(GPIOA->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOA->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOA->LCKR , LOCKED_PIN)));
+			break;
+		}
+		case GPIO_PORTB:{
+			SET_BIT(GPIOB->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOB->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOB->LCKR , LOCKED_PIN)));
+			break;
+		}
+		case GPIO_PORTC:{
+			SET_BIT(GPIOC->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOC->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOC->LCKR , LOCKED_PIN)));
+			break;
+		}
+		case GPIO_PORTD:{
+			SET_BIT(GPIOD->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOD->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOD->LCKR , LOCKED_PIN)));
+			break;
+		}
+		case GPIO_PORTE:{
+			SET_BIT(GPIOE->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOE->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOE->LCKR , LOCKED_PIN)));
+			break;
+		}
+		case GPIO_PORTH:{
+			SET_BIT(GPIOH->LCKR ,copy_u8PinNumber );
+			SET_BIT(GPIOH->LCKR , LOCKED_PIN);
+			while(!(GET_BIT(GPIOH->LCKR , LOCKED_PIN)));
+			break;
+		}
+	}
+}
+
+/***********************************End Function*********************************************/
+
+
+
+
+/***********************************Start Function*********************************************/
+
+
+void MGPIO_voidSetAlternativeFunction(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8AltFunction){
+	if(copy_u8AltFunction <= 7){
+		switch(copy_u8PortId){
+			case GPIO_PORTA:{
+				GPIOA->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOA->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+			case GPIO_PORTB:{
+				GPIOB->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOB->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+			case GPIO_PORTC:{
+				GPIOC->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOC->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+			case GPIO_PORTD:{
+				GPIOD->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOD->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+			case GPIO_PORTE:{
+				GPIOE->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOE->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+			case GPIO_PORTH:{
+				GPIOH->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
+				GPIOH->AFRL |= (copy_u8AltFunction << copy_u8PinNumber*4);
+				break;
+			}
+		}
+	}else{
+		/*local variable to access alternative function in hugh register*/
+		u8 local_u8DummyPin = copy_u8PinNumber - 8 ;
+		switch(copy_u8PortId){
+			case GPIO_PORTA:{
+				GPIOA->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOA->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+			case GPIO_PORTB:{
+				GPIOB->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOB->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+			case GPIO_PORTC:{
+				GPIOC->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOC->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+			case GPIO_PORTD:{
+				GPIOD->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOD->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+			case GPIO_PORTE:{
+				GPIOE->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOE->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+			case GPIO_PORTH:{
+				GPIOH->AFRH &= ~(CLEAR_ALTERNATIVE_FUNCTION << (local_u8DummyPin*4));
+				GPIOH->AFRH |= (copy_u8AltFunction << local_u8DummyPin*4);
+				break;
+			}
+	}
+}
+
+}
+/***********************************End Function*********************************************/
+
 
 
 

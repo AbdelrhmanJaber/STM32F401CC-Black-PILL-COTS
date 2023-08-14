@@ -42,4 +42,8 @@ typedef struct myStruct2{
 #define GPIOH      ((volatile GPIO_memoryMap_t*)(GPIOH_BASE_ADDRESS))
 
 
+#define LOCKED_PIN            16
+
+#define CLEAR_ALTERNATIVE_FUNCTION            0b1111
+
 #endif /* MCAL_MGPIO_MGPIO_PRIVATE_H_ */
