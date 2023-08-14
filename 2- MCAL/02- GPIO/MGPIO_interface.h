@@ -75,6 +75,8 @@ void MGPIO_voidSetPinValue(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8Va
 
 void MGPIO_voidSetPinValueFast(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8PinValue);  /*BSRR*/
 
+void MGPIO_voidLockPin(u8 copy_u8PortId , u8 copy_u8PinNumber);
+
 void MGPIO_voidSetAlternativeFunction(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8AltFunction);
 
 
