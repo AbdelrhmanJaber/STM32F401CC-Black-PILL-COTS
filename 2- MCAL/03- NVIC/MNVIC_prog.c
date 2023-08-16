@@ -27,9 +27,9 @@ u32 NVIC_GetPendingIRQ(NVIC_IRQN IRQn){
 }
 
 void NVIC_SetPriority(NVIC_IRQN IRQn, u32 priority){
-
+	if(IRQn >= 0) NVIC->IPR[(u8)IRQn] = (priority << PRIORITY_RESERVED_BITS);
 }
 
 u32 NVIC_GetPriority(NVIC_IRQN IRQn){
-	return 0;
+	return	 GET_BIT(NVIC->IABR[(((u32)IRQn)>>5)], (((u32)IRQn)&(0x1FUL)));
 }

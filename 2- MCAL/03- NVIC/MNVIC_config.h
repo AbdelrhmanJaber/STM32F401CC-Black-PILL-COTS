@@ -12,5 +12,6 @@
 #define MCAL_MNVIC_MNVIC_CONFIG_H_
 
 
+#define PRIORITY_RESERVED_BITS           4
 
 #endif /* MCAL_MNVIC_MNVIC_CONFIG_H_ */
