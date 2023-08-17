@@ -34,6 +34,9 @@ typedef struct myNVIC{
 
 #define NVIC				((volatile  NVIC_memoryMap_t*)(NVIC_BASEADD))
 
+#define SCB_AIRCR           (*(volatile u32*) 0xE000ED0C)
+
+#define VECTKEY             0x05FA0000
 
 
 /******************************Enum to handle priorities*********************************/
