@@ -1,3 +1,10 @@
+/*
+ *   file : MEXTI_prog.c
+ *   Date : 15/8/2023
+ *   Author : Abdelrahman Ibrahim
+ *
+ * */
+
 #include "../../LIB/STD_Types.h"
 #include"../../LIB/BIT_Math.h"
 
@@ -112,116 +119,6 @@ EXTI4_IRQHandler(void){
 		MEXTI_PF[EXTI_LINE4]();
 		/*clear the flag*/
 		SET_BIT(EXTI->PR , EXTI_LINE4);
-	}
-}
-
-
-EXTI5_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE5] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE5]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE5);
-	}
-}
-
-
-EXTI6_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE6] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE6]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE6);
-	}
-}
-
-
-EXTI7_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE7] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE7]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE7);
-	}
-}
-
-
-EXTI8_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE8] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE8]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE8);
-	}
-}
-
-
-EXTI9_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE9] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE9]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE9);
-	}
-}
-
-
-EXTI10_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE10] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE10]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE10);
-	}
-}
-
-
-EXTI11_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE11] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE11]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE11);
-	}
-}
-
-
-EXTI12_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE12] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE12]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE12);
-	}
-}
-
-
-EXTI13_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE13] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE13]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE13);
-	}
-}
-
-
-EXTI14_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE14] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE14]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE14);
-	}
-}
-
-
-EXTI15_IRQHandler(void){
-	if(MEXTI_PF[EXTI_LINE15] != NULL){
-		/*excute the function*/
-		MEXTI_PF[EXTI_LINE15]();
-		/*clear the flag*/
-		SET_BIT(EXTI->PR , EXTI_LINE15);
 	}
 }
 
