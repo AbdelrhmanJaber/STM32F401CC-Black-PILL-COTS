@@ -6,8 +6,8 @@
  * */
 
 /**** Library Layer ****/
-#include "../LIB/STD_Types.h"
-#include "../LIB/BIT_Math.h"
+#include "../../LIB/STD_Types.h"
+#include "../../LIB/BIT_Math.h"
 
 
 /***** RCC libraries *******/
