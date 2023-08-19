@@ -1,0 +1,9 @@
+MGPIO_prog.c:14:6:MGPIO_voidSetPinMode	7
+MGPIO_prog.c:55:6:MGPIO_voidSetPinOutPutType	7
+MGPIO_prog.c:74:6:MGPIO_voidSetPinOutPutSpeed	7
+MGPIO_prog.c:117:6:MGPIO_voidSetPinInputPull	7
+MGPIO_prog.c:155:4:MGPIO_u8GetPinValue	7
+MGPIO_prog.c:175:6:MGPIO_voidSetPinValue	7
+MGPIO_prog.c:211:6:MGPIO_voidSetPinValueFast	15
+MGPIO_prog.c:239:6:MGPIO_voidLockPin	13
+MGPIO_prog.c:288:6:MGPIO_voidSetAlternativeFunction	14
