@@ -30,5 +30,6 @@ typedef struct{
 #define CLKSOURCE                  2
 #define COUNTFLAG                 16
 
+#define NULL                  (void*)0
 
 #endif /* MCAL_MSTK_MSTK_PRIVATE_H_ */
