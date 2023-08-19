@@ -16,7 +16,7 @@ void trafficInit(void);
 
 
 int main(void){
-	MRCC_voidInit(MRCC_HSI);
+	MRCC_voidInit(MRCC_HSE);
 	MRCC_voidEnablePeripheral(AHB1ENR_BUS , GPIOAEN);
 	MRCC_voidEnablePeripheral(APB2ENR_BUS , SYSCFGEN);
 
@@ -51,7 +51,10 @@ void trafficInit(void){
 void test_led(void){
 	while(1){
 	MGPIO_voidSetPinValue(GPIO_PORTA,0,1);
-	MSTK_voidDelay_ms(14000);
+	MSTK_voidDelay_ms(2000);
+	MSTK_voidDelay_ms(2000);
+	MSTK_voidDelay_ms(2000);
+	MSTK_voidDelay_ms(1000);
 	for(u8 i = 0 ; i < 3 ; i++){
 	  MGPIO_voidSetPinValue(GPIO_PORTA,0,0);
 	  MGPIO_voidSetPinValue(GPIO_PORTA,2,0);
@@ -62,9 +65,13 @@ void test_led(void){
 	}
 
 	 MGPIO_voidSetPinValue(GPIO_PORTA,0,0);
+	 MGPIO_voidSetPinValue(GPIO_PORTA,2,0);
 
 	 MGPIO_voidSetPinValue(GPIO_PORTA,3,1);
-	 MSTK_voidDelay_ms(14000);
+	 MSTK_voidDelay_ms(2000);
+	 MSTK_voidDelay_ms(2000);
+	 MSTK_voidDelay_ms(2000);
+	 MSTK_voidDelay_ms(1000);
 
 	 for(u8 i = 0 ; i < 3 ; i++){
 	   MGPIO_voidSetPinValue(GPIO_PORTA,3,0);
