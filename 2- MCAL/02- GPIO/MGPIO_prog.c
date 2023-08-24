@@ -286,7 +286,7 @@ void MGPIO_voidLockPin(u8 copy_u8PortId , u8 copy_u8PinNumber){
 
 
 void MGPIO_voidSetAlternativeFunction(u8 copy_u8PortId , u8 copy_u8PinNumber , u8 copy_u8AltFunction){
-	if(copy_u8AltFunction <= 7){
+	if(copy_u8PinNumber <= 7){
 		switch(copy_u8PortId){
 			case GPIO_PORTA:{
 				GPIOA->AFRL &= ~(CLEAR_ALTERNATIVE_FUNCTION << (copy_u8PinNumber*4));
