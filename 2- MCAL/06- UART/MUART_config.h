@@ -55,6 +55,6 @@
 #define  SAMPLING_8                 1
 #define  SAMPLING_16                2
 
-#define OVER_SAMPLING               SAMPLING_8
+#define OVER_SAMPLING               SAMPLING_16
 
 #endif /* SRC_MCAL_UART_MUART_CONFIG_H_ */
