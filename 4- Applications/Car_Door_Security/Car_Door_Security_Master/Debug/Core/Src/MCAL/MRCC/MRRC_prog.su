@@ -1,0 +1,5 @@
+../Core/Src/MCAL/MRCC/MRRC_prog.c:19:6:MRCC_voidInit	16	static
+../Core/Src/MCAL/MRCC/MRRC_prog.c:85:6:MRCC_voidSecurityOn	4	static
+../Core/Src/MCAL/MRCC/MRRC_prog.c:89:6:MRCC_voidSecurityOff	4	static
+../Core/Src/MCAL/MRCC/MRRC_prog.c:93:6:MRCC_voidEnablePeripheral	16	static
+../Core/Src/MCAL/MRCC/MRRC_prog.c:102:6:MRCC_voidDisablePeripheral	16	static
