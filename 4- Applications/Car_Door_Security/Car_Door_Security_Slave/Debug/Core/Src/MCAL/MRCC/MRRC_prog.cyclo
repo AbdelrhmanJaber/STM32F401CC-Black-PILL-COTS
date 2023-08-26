@@ -1,0 +1,5 @@
+MRRC_prog.c:19:6:MRCC_voidInit	15
+MRRC_prog.c:85:6:MRCC_voidSecurityOn	1
+MRRC_prog.c:89:6:MRCC_voidSecurityOff	1
+MRRC_prog.c:93:6:MRCC_voidEnablePeripheral	5
+MRRC_prog.c:102:6:MRCC_voidDisablePeripheral	5

@@ -1,0 +1,9 @@
+MNVIC_prog.c:9:6:MNVIC_EnableIRQ	1
+MNVIC_prog.c:15:6:MNVIC_DisableIRQ	1
+MNVIC_prog.c:19:6:MNVIC_SetPendingIRQ	1
+MNVIC_prog.c:25:6:MNVIC_ClearPendingIRQ	1
+MNVIC_prog.c:29:5:MNVIC_GetPendingIRQ	1
+MNVIC_prog.c:33:6:MNVIC_SetDefaultPriority	2
+MNVIC_prog.c:37:5:MNVIC_GetPriority	1
+MNVIC_prog.c:41:6:MNVIC_voidInterruptGroupingInit	2
+MNVIC_prog.c:45:6:MNVIC_voidSetGroupingInterruptPriority	6
