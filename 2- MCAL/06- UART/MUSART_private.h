@@ -53,7 +53,39 @@ typedef struct {
 
 
 
+/*defined baudrate for 16M clk*/
+
+typedef enum{
+    B_SAMPLING_16_1200   = 0x44505400,
+    B_SAMPLING_16_2400   = 0x43d05800,
+    B_SAMPLING_16_9600   = 0x683,
+    B_SAMPLING_16_19200  = 0x42504000,
+    B_SAMPLING_16_38400  = 0x41d08000,
+    B_SAMPLING_16_57600  = 0x418b0000,
+    B_SAMPLING_16_115200 = 0x410b0000
+}BaudRate_SAMPLING_16_t;
+
+
+/*defined baudrate for 8M clk*/
+
+
+typedef enum{
+    B_SAMPLING_8_1200   = 0x6825,
+    B_SAMPLING_8_2400   = 0x3413,
+    B_SAMPLING_8_9600   = 0xD03,
+    B_SAMPLING_8_19200  = 0x683,
+    B_SAMPLING_8_38400  = 0x341,
+    B_SAMPLING_8_57600  = 0x226,
+    B_SAMPLING_8_115200 = 0x113
+}BaudRate_SAMPLING_8_t;
+
+
 #define MAX_SPEED_MODES                     2
 #define MAX_BAUDRATES_OPTIONS               7
+
+
+#define STOP_BIT_1             0b00000000000000000000000000000000
+#define STOP_BIT_HALF		   0b00000000000000000001000000000000
+#define STOP_BIT_TWO		   0b00000000000000000010000000000000
 
 #endif /* SRC_MCAL_MSUSART_MSUSART_PRIVATE_H_ */
